@@ -8,30 +8,57 @@ export class AnythingUnderTheSun extends LitElement {
         padding: 25px;
         color: var(--anything-under-the-sun-text-color, #000);
       }
+
+      a {
+        border-radius: 30px;
+        border-width: 1px;
+        text-decoration: none;
+        background-color: lightgrey;
+        padding: 15px 25px 15px 25px;
+        font-size: 20px;
+        color: black;
+        transition: 0.2s;
+      }
+
+      a:hover, a:focus {
+        color: white;
+        background-color: green;
+        transition: 0.2s;
+      }
     `;
   }
 
   static get properties() {
     return {
-      title: { type: String },
-      counter: { type: Number },
+      link: { type: String },
+      text: { type: String },
     };
   }
 
   constructor() {
     super();
-    this.title = 'Hey there';
-    this.counter = 5;
+    this.link = 'https://www.google.com/';
+    this.text = 'Go to Google';
   }
 
-  __increment() {
-    this.counter += 1;
+  __click(e) {
+    if (this.editMode) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
   }
 
   render() {
     return html`
-      <h2>${this.title} Nr. ${this.counter}!</h2>
-      <button @click=${this.__increment}>increment</button>
+      <a 
+        class="btn" 
+        href="${this.link}" 
+        @click=${this.__click} 
+        target="_blank" 
+        rel="noopener">
+        <span>${this.text}</span>
+      </a>
     `;
   }
 }

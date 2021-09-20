@@ -5,6 +5,7 @@
   <style>
     body {
       background: #fafafa;
+      text-align: center;
     }
   </style>
 </head>
@@ -15,11 +16,10 @@
     import { html, render } from 'lit';
     import '../anything-under-the-sun.js';
 
-    const title = 'Hello owc World!';
+    const title = 'Go to Google';
     render(
       html`
         <anything-under-the-sun .title=${title}>
-          some light-dom
         </anything-under-the-sun>
       `,
       document.querySelector('#demo')
