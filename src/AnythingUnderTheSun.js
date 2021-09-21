@@ -51,13 +51,7 @@ export class AnythingUnderTheSun extends LitElement {
 
   render() {
     return html`
-      <a 
-        class="btn" 
-        href="${this.link}" 
-        @click=${this.__click} 
-        target="_blank" 
-        rel="noopener">
-        ${this.text}<slot></slot>
+      <a href="${this.link}" @click=${this.__click} target="_blank" rel="noopener">${this.text}<slot></slot>
       </a>
     `;
   }
