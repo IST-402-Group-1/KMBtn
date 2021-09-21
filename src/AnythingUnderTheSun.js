@@ -57,7 +57,7 @@ export class AnythingUnderTheSun extends LitElement {
         @click=${this.__click} 
         target="_blank" 
         rel="noopener">
-        ${this.text}
+        ${this.text}<slot></slot>
       </a>
     `;
   }
