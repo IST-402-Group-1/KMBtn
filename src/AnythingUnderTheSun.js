@@ -1,4 +1,6 @@
 import { html, css, LitElement } from 'lit';
+import "@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js";
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 export class AnythingUnderTheSun extends LitElement {
   static get styles() {
@@ -31,14 +33,16 @@ export class AnythingUnderTheSun extends LitElement {
   static get properties() {
     return {
       link: { type: String },
-      text: { type: String },
+      title: { type: String },
+      icon: { type: String },
     };
   }
 
   constructor() {
     super();
     this.link = 'https://www.google.com/';
-    this.text = 'Go to Google';
+    this.title = 'Go to Google';
+    this.icon = false;
   }
 
   __click(e) {
@@ -51,7 +55,10 @@ export class AnythingUnderTheSun extends LitElement {
 
   render() {
     return html`
-      <a href="${this.link}" @click=${this.__click} target="_blank" rel="noopener">${this.text}<slot></slot>
+      <a href="${this.link}" @click=${this.__click} target="_blank" rel="noopener">
+        ${this.icon ? html`<simple-icon-lite icon="${this.icon}"></simple-icon-lite>` : ``}
+        ${this.title}
+        <slot></slot>
       </a>
     `;
   }
