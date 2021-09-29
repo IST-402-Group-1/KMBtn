@@ -21,3 +21,10 @@ Different:
 
 Approach: 
 -Creating a button that is wrapped in a link 
+
+Team meeting:
+created button that is wrapped in a link
+disabled feature up and running 
+Karina researched audio files to use for the button and also how to play the audio files when the button is clicked
+
+
