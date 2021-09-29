@@ -41,35 +41,49 @@ export class AnythingUnderTheSun extends LitElement {
       title: { type: String },
       icon: { type: String },
       disabled: { type: Boolean, reflect: true },
+      soundList: { type: Array },
     };
   }
 
   constructor() {
     super();
     this.link = 'https://www.google.com/';
-    this.title = 'Go to Google';
+    this.title = 'F***';
     this.icon = false;
     this.disabled = false;
+    this.soundList = 
+      [
+        //sit speak fuck
+        '/media/sounds/fuck_s6r02U8.mp3',
+        //youre a fucking idiot
+        '/media/sounds/youre-a-fucking-idiot.mp3',
+        //go fuck yourself
+        '/media/sounds/gofuckyourself-copy.mp3',
+      ];
   }
 
   __click(e) {
-    if (this.editMode) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-    }
+    // if (this.editMode) {
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //   e.stopImmediatePropagation();
+    // }
+    let randNum = Math.floor(Math.random() * this.soundList.length);
+
+    console.log(randNum);
+    console.log("https://www.myinstants.com" + this.soundList[randNum]);
+
+    let audio = new Audio("https://www.myinstants.com" + this.soundList[randNum]);
+    audio.play();
   }
 
   render() {
     return html`
       <a 
-      href="${this.disabled ? `` : `${this.link}`}" 
-      @click=${this.__click} 
-      target="_blank" 
-      rel="noopener">
+      @click="${this.__click}">
         <button ?disabled="${this.disabled}">
-          ${this.icon ? html`<simple-icon-lite icon="${this.icon}"></simple-icon-lite>` : ``}
           ${this.title}
+          ${this.icon ? html`<simple-icon-lite icon="${this.icon}"></simple-icon-lite>` : ``}
           <slot></slot>
         </button>
       </a>
