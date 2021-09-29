@@ -11,7 +11,7 @@ export class AnythingUnderTheSun extends LitElement {
         color: var(--anything-under-the-sun-text-color, #000);
       }
 
-      a {
+      button {
         border-radius: 30px;
         border-width: 1px;
         text-decoration: none;
@@ -22,7 +22,7 @@ export class AnythingUnderTheSun extends LitElement {
         transition: 0.2s;
       }
 
-      a:hover, a:focus {
+      button:hover, button:focus {
         color: white;
         background-color: green;
         transition: 0.2s;
@@ -35,6 +35,7 @@ export class AnythingUnderTheSun extends LitElement {
       link: { type: String },
       title: { type: String },
       icon: { type: String },
+      disabled: { type: Boolean, reflect: true },
     };
   }
 
@@ -43,6 +44,7 @@ export class AnythingUnderTheSun extends LitElement {
     this.link = 'https://www.google.com/';
     this.title = 'Go to Google';
     this.icon = false;
+    this.disabled = false;
   }
 
   __click(e) {
@@ -55,10 +57,16 @@ export class AnythingUnderTheSun extends LitElement {
 
   render() {
     return html`
-      <a href="${this.link}" @click=${this.__click} target="_blank" rel="noopener">
-        ${this.icon ? html`<simple-icon-lite icon="${this.icon}"></simple-icon-lite>` : ``}
-        ${this.title}
-        <slot></slot>
+      <a 
+      href="${this.disabled ? `` : `${this.link}`}" 
+      @click=${this.__click} 
+      target="_blank" 
+      rel="noopener">
+        <button ?disabled="${this.diabled}">
+          ${this.icon ? html`<simple-icon-lite icon="${this.icon}"></simple-icon-lite>` : ``}
+          ${this.title}
+          <slot></slot>
+        </button>
       </a>
     `;
   }
