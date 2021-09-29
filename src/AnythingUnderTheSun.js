@@ -12,7 +12,7 @@ export class AnythingUnderTheSun extends LitElement {
       }
 
       button {
-        border-radius: 30px;
+        border-radius: 20px;
         border-width: 1px;
         text-decoration: none;
         background-color: lightgrey;
@@ -26,6 +26,11 @@ export class AnythingUnderTheSun extends LitElement {
         color: white;
         background-color: green;
         transition: 0.2s;
+      }
+
+      button:active {
+        background-color: grey;
+        color: black;
       }
     `;
   }
@@ -62,7 +67,7 @@ export class AnythingUnderTheSun extends LitElement {
       @click=${this.__click} 
       target="_blank" 
       rel="noopener">
-        <button ?disabled="${this.diabled}">
+        <button ?disabled="${this.disabled}">
           ${this.icon ? html`<simple-icon-lite icon="${this.icon}"></simple-icon-lite>` : ``}
           ${this.title}
           <slot></slot>
