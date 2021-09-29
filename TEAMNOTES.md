@@ -10,4 +10,14 @@ What did you learn today that you will apply: We learned that we could do more t
 
 What are your next steps: To change our button to preform a task on the screen rather than just open a link on a new page. Not sure what that task is yet.
 
+Tuesdays Class (9/28)
+Similar things: 
+-Both buttons bring the user to a website
+-Both buttons utilize the hover function
+Different: 
+-We had mulitple buttons on the screen while they only had one
+-We used more than one icon while they have not 
 
+
+Approach: 
+-Creating a button that is wrapped in a link 
