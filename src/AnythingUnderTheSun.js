@@ -37,7 +37,6 @@ export class AnythingUnderTheSun extends LitElement {
 
   static get properties() {
     return {
-      link: { type: String },
       title: { type: String },
       icon: { type: String },
       disabled: { type: Boolean, reflect: true },
@@ -47,7 +46,6 @@ export class AnythingUnderTheSun extends LitElement {
 
   constructor() {
     super();
-    this.link = 'https://www.google.com/';
     this.title = 'F***';
     this.icon = false;
     this.disabled = false;
@@ -63,15 +61,12 @@ export class AnythingUnderTheSun extends LitElement {
   }
 
   __click(e) {
-    // if (this.editMode) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   e.stopImmediatePropagation();
-    // }
+    if (this.editMode) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
     let randNum = Math.floor(Math.random() * this.soundList.length);
-
-    console.log(randNum);
-    console.log("https://www.myinstants.com" + this.soundList[randNum]);
 
     let audio = new Audio("https://www.myinstants.com" + this.soundList[randNum]);
     audio.play();
