@@ -1,9 +1,9 @@
 {
-  "name": "anything-under-the-sun",
+  "name": "@stuff/anything-under-the-sun",
   "description": "Webcomponent anything-under-the-sun following open-wc recommendations",
   "license": "MIT",
   "author": "anything-under-the-sun",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "module": "index.js",
   "scripts": {
@@ -54,5 +54,9 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   }
 }
