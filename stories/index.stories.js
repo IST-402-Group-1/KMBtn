@@ -11,7 +11,7 @@ export default {
   },
 };
 
-function Template({ title = 'Hello world', play = 5, icon, slot }) {
+function Template({ title = 'Hello world', play = false, icon, slot }) {
   return html`
     <anything-under-the-sun .title=${title} ?play=${play} icon=${icon}>
       ${slot}
@@ -30,5 +30,5 @@ CustomTitle.args = {
 
 export const SlottedContent = Template.bind({});
 SlottedContent.args = {
-  slot: html`<p>Slotted content</p>`,
+  slot: html`A title that should show up because of the slot`,
 };

@@ -53,6 +53,7 @@ export class AnythingUnderTheSun extends LitElement {
 
   constructor() {
     super();
+    this._clicked = false;
     this.link = 'https://www.google.com/';
     this.title = 'F***';
     this.icon = false;
@@ -80,6 +81,10 @@ export class AnythingUnderTheSun extends LitElement {
     this.__audio.onended = () => {
       // when we are done playing, change state of our button to match
       this.play = false;
+      if (this.link && this._clicked) {
+        this._clicked = false;
+        window.open(this.link, '_blank', 'noopener');
+      }
     };
     // we have a light dom selector, let's use the DOM to power data
     // select all audio tags that have an src set
@@ -159,12 +164,11 @@ export class AnythingUnderTheSun extends LitElement {
     this.__audio.play();
   }
 
-  __click() {
-    // if (this.editMode) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   e.stopImmediatePropagation();
-    // }
+  __click(e) {
+    // force us NOT to go to the link immediately
+    // this ensures we are accessible yet we are funny :)
+    e.preventDefault();
+    this._clicked = true;
     // updating play means that the updated() life-cycle will execute
     // which will ensure that we have the correct state management we want
     this.play = true;
