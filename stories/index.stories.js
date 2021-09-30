@@ -13,7 +13,7 @@ export default {
 
 function Template({ title = 'Hello world', play = false, icon, slot }) {
   return html`
-    <anything-under-the-sun .title=${title} ?play=${play} icon=${icon}>
+    <anything-under-the-sun .title=${title} ?play=${play} .icon=${icon}>
       ${slot}
     </anything-under-the-sun>
   `;
