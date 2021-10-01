@@ -27,4 +27,7 @@ created button that is wrapped in a link
 disabled feature up and running 
 Karina researched audio files to use for the button and also how to play the audio files when the button is clicked
 
+Class:
+After going through the demo and code provided by prof, add code and fix up button by adding some of the code provided. Researched more sounds that are less offensive 
+
 
