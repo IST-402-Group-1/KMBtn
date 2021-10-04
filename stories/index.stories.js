@@ -5,18 +5,19 @@ export default {
   title: 'AnythingUnderTheSun',
   component: 'anything-under-the-sun',
   argTypes: {
+    link: { control: 'text' },
     title: { control: 'text' },
-    counter: { control: 'number' },
-    textColor: { control: 'color' },
+    icon: { control: 'text' },
+    disabled: { control: 'boolean' },
+    play: { control: 'boolean' },
+    dark: { control: 'boolean' },
   },
 };
 
-function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
+function Template({ title = 'Meme', icon = "av:volume-mute", link = "https://www.google.com/", disabled = false, slot, dark = false, play = false}) {
   return html`
     <anything-under-the-sun
-      style="--anything-under-the-sun-text-color: ${textColor || 'black'}"
-      .title=${title}
-      .counter=${counter}
+      .title=${title} .icon=${icon} .link =${link} .disabled=${disabled} .dark=${dark} .play=${play}
     >
       ${slot}
     </anything-under-the-sun>
@@ -24,21 +25,3 @@ function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
 }
 
 export const Regular = Template.bind({});
-
-export const CustomTitle = Template.bind({});
-CustomTitle.args = {
-  title: 'My title',
-};
-
-export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-  counter: 123456,
-};
-
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-  slot: html`<p>Slotted content</p>`,
-};
-SlottedContent.argTypes = {
-  slot: { table: { disable: true } },
-};
